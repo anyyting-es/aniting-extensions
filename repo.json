@@ -1,0 +1,8 @@
+{
+  "name": "Aniting Extensions Repository",
+  "description": "Repositorio oficial de extensiones de streaming para Seanime y Aniting impulsado por Cloudflare Edge.",
+  "manifestURIs": [
+    "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-stream/manifest.json",
+    "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-hd/manifest.json"
+  ]
+}

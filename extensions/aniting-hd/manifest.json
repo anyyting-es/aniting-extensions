@@ -1,0 +1,15 @@
+{
+  "id": "aniting-hd",
+  "name": "Aniting Ultra HD",
+  "version": "1.0.0",
+  "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-hd/manifest.json",
+  "language": "javascript",
+  "type": "onlinestream-provider",
+  "description": "Transmisión directa HLS 1080p con multi-subtítulos sincronizados (Español, Inglés y más) y mapeo automático AniList.",
+  "author": "Aniting",
+  "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
+  "website": "https://aniting-api.algienrandomxdd.workers.dev",
+  "readme": "Proveedor oficial Ultra HD 1080p optimizado por Cloudflare Edge Cache.",
+  "lang": "multi",
+  "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-hd/main.js"
+}
