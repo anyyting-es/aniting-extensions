@@ -12,5 +12,33 @@
     "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-universal/manifest.json",
     "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-universal/main.js",
     "website": "https://aniting-api.algienrandomxdd.workers.dev"
+  },
+  {
+    "id": "animetosho-new",
+    "name": "AnimeTosho (NEW)",
+    "version": "2.5.1",
+    "author": "Faddix, Island",
+    "description": "Proveedor de torrents oficial para Anime Tosho (búsquedas inteligentes, lotes y episodios individuales).",
+    "type": "anime-torrent-provider",
+    "language": "typescript",
+    "lang": "multi",
+    "icon": "https://raw.githubusercontent.com/faddix/seanime-animetosho-new/main/src/animetosho-new-logo.png",
+    "manifestURI": "https://raw.githubusercontent.com/faddix/seanime-animetosho-new/main/animetosho-new.json",
+    "payloadURI": "https://raw.githubusercontent.com/faddix/seanime-animetosho-new/main/animetosho-new.ts",
+    "website": "https://animetosho.org"
+  },
+  {
+    "id": "mangadex",
+    "name": "MangaDex",
+    "version": "1.0.0",
+    "author": "kiko",
+    "description": "Proveedor oficial de manga para leer mangas y cómics en múltiples idiomas desde MangaDex.",
+    "type": "manga-provider",
+    "language": "typescript",
+    "lang": "multi",
+    "icon": "https://raw.githubusercontent.com/5rahim/hibike/main/icons/mangadex.png",
+    "manifestURI": "https://raw.githubusercontent.com/HyperKiko/seanime-extensions/main/src/mangadex/mangadex.json",
+    "payloadURI": "https://raw.githubusercontent.com/HyperKiko/seanime-extensions/main/src/mangadex/mangadex.ts",
+    "website": "https://mangadex.org"
   }
 ]
