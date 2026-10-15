@@ -15,15 +15,15 @@ Repositorio oficial de extensiones de streaming y contenido para **Seanime** y l
 
 ## ⚡ Instalación en Seanime
 
-### Opción 1: Agregar como Repositorio Externo en Seanime (Recomendado)
+### Opción 1: Agregar como Marketplace en Seanime (Recomendado)
 
-1. Abre **Seanime** y ve a **Settings** > **Extensions**.
-2. En la sección **Extension Repositories**, haz clic en **Add Repository**.
-3. Pega la URL del repositorio:
+1. Abre **Seanime**, entra en la pestaña **Marketplace** (o **Settings** > **Extensions**).
+2. Haz clic en **Change repository** en la esquina superior derecha.
+3. Pega la URL directa del catálogo:
    ```text
-   https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/repo.json
+   https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/marketplace.json
    ```
-4. Haz clic en **Save** y luego instala las extensiones deseadas con un solo clic.
+4. Haz clic en **Save** / **Refresh** y verás aparecer ambas extensiones con su botón de **Install**.
 
 ---
 
