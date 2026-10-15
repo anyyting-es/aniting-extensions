@@ -1,0 +1,14 @@
+{
+  "id": "kawaii-animes",
+  "name": "Kawaii Animes",
+  "version": "1.0.0",
+  "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/kawaii-animes/manifest.json",
+  "language": "javascript",
+  "type": "onlinestream-provider",
+  "description": "Catálogo completo con servidores de alta velocidad en Español Latino, Castellano y Subtitulado.",
+  "author": "Aniting / Kawaii",
+  "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
+  "website": "https://aniting-api.algienrandomxdd.workers.dev",
+  "lang": "es",
+  "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/kawaii-animes/main.js"
+}

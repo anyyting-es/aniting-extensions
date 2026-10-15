@@ -1,0 +1,14 @@
+{
+  "id": "anipm-onlinestream",
+  "name": "Ani.pm",
+  "version": "1.0.0",
+  "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/anipm/manifest.json",
+  "language": "javascript",
+  "type": "onlinestream-provider",
+  "description": "Proveedor de streaming rápido y sin publicidad con multi-subtítulos y mapeo directo de AniList.",
+  "author": "Aniting",
+  "icon": "https://ani.pm/favicon-32x32.png",
+  "website": "https://ani.pm",
+  "lang": "multi",
+  "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/anipm/main.js"
+}
