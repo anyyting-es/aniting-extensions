@@ -3,14 +3,7 @@ const API_BASE = "https://aniting-api.algienrandomxdd.workers.dev";
 class Provider {
     getSettings() {
         return {
-            episodeServers: [
-                "Auto",
-                "Server 1 [Latino]",
-                "Server 1 [Castellano]",
-                "Server 1 [Sub]",
-                "Server 2 [Latino]",
-                "Server 2 [Sub]"
-            ],
+            episodeServers: ["Server 1 [Latino]", "Server 1 [Sub]", "Server 1 [Castellano]"],
             supportsDub: true,
         };
     }
@@ -58,7 +51,13 @@ class Provider {
         const animeId = parts[0];
         const epNum = parts[1] || episode.number || 1;
 
-        const res = await fetch(`${API_BASE}/streams?animeId=${encodeURIComponent(animeId)}&ep=${epNum}`);
+        const targetServer = (server || "").trim();
+        let queryUrl = `${API_BASE}/streams?animeId=${encodeURIComponent(animeId)}&ep=${epNum}`;
+        if (targetServer) {
+            queryUrl += `&server=${encodeURIComponent(targetServer)}`;
+        }
+
+        const res = await fetch(queryUrl);
         if (!res.ok) {
             throw new Error(`[KawaiiAnimes] Error HTTP ${res.status} al consultar streams`);
         }
@@ -69,14 +68,16 @@ class Provider {
             throw new Error(`[KawaiiAnimes] No hay streams disponibles para el episodio ${epNum}`);
         }
 
-        let chosen = streams[0];
-        if (server && server !== "Auto") {
-            const match = streams.find(s => s.server.toLowerCase() === server.toLowerCase());
-            if (match) chosen = match;
+        let chosen = null;
+        if (targetServer) {
+            chosen = streams.find(s => s.server.toLowerCase() === targetServer.toLowerCase());
+        }
+        if (!chosen) {
+            chosen = streams[0];
         }
 
         return {
-            server: chosen.server || "Server 1 [Latino]",
+            server: chosen.server,
             headers: chosen.headers || {},
             videoSources: [
                 {
