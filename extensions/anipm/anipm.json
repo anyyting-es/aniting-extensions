@@ -5,7 +5,7 @@
   "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/anipm/manifest.json",
   "language": "javascript",
   "type": "onlinestream-provider",
-  "description": "Proveedor de streaming rápido y sin publicidad con multi-subtítulos y mapeo directo de AniList.",
+  "description": "Proveedor de streaming r\u00e1pido y sin publicidad con multi-subt\u00edtulos y mapeo directo de AniList.",
   "author": "Aniting",
   "icon": "https://ani.pm/favicon-32x32.png",
   "website": "https://ani.pm",

@@ -5,7 +5,7 @@
   "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/kawaii-animes/manifest.json",
   "language": "javascript",
   "type": "onlinestream-provider",
-  "description": "Catálogo completo con servidores de alta velocidad en Español Latino, Castellano y Subtitulado.",
+  "description": "Cat\u00e1logo completo con servidores de alta velocidad en Espa\u00f1ol Latino, Castellano y Subtitulado.",
   "author": "Aniting / Kawaii",
   "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
   "website": "https://aniting-api.algienrandomxdd.workers.dev",

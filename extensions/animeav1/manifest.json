@@ -5,10 +5,10 @@
   "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/animeav1/manifest.json",
   "language": "javascript",
   "type": "onlinestream-provider",
-  "description": "Transmisiones 1080p HLS con multi-subtítulos sincronizados y soporte multi-audio (Sub / English Dub).",
+  "description": "Servidor exclusivo de AnimeAV1 en Español (Voe, Byse, MP4Upload, UPNShare, HLS con soporte Sub y Doblaje).",
   "author": "Aniting",
-  "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
-  "website": "https://aniting-api.algienrandomxdd.workers.dev",
-  "lang": "multi",
+  "icon": "https://animeav1.com/favicon.ico",
+  "website": "https://animeav1.com",
+  "lang": "es",
   "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/animeav1/main.js"
 }

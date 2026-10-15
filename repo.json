@@ -4,14 +4,14 @@
     "name": "Anime AV1",
     "version": "1.0.0",
     "author": "Aniting",
-    "description": "Transmisiones 1080p HLS con multi-subtítulos sincronizados y soporte multi-audio (Sub / English Dub).",
+    "description": "Servidor exclusivo de AnimeAV1 en Español (Voe, Byse, MP4Upload, UPNShare, HLS con soporte Sub y Doblaje).",
     "type": "onlinestream-provider",
     "language": "javascript",
-    "lang": "multi",
-    "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
+    "lang": "es",
+    "icon": "https://animeav1.com/favicon.ico",
     "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/animeav1/manifest.json",
     "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/animeav1/main.js",
-    "website": "https://aniting-api.algienrandomxdd.workers.dev"
+    "website": "https://animeav1.com"
   },
   {
     "id": "kawaii-animes",
@@ -28,20 +28,6 @@
     "website": "https://aniting-api.algienrandomxdd.workers.dev"
   },
   {
-    "id": "jkanime",
-    "name": "JKAnime",
-    "version": "1.0.0",
-    "author": "Aniting / JKAnime",
-    "description": "Anime subtitulado al español con servidores múltiples de reproducción (StreamWish, VOE, etc.).",
-    "type": "onlinestream-provider",
-    "language": "javascript",
-    "lang": "es",
-    "icon": "https://cdn.jkdesa.com/assets3/css/img/favicon.ico",
-    "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/jkanime/manifest.json",
-    "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/jkanime/main.js",
-    "website": "https://jkanime.net"
-  },
-  {
     "id": "anipm-onlinestream",
     "name": "Ani.pm",
     "version": "1.0.0",
@@ -54,6 +40,34 @@
     "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/anipm/manifest.json",
     "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/anipm/main.js",
     "website": "https://ani.pm"
+  },
+  {
+    "id": "reanime",
+    "name": "Re:ANIME",
+    "version": "1.0.0",
+    "author": "Aniting",
+    "description": "Servidor de alta fidelidad Re:ANIME con streaming adaptativo, subtítulos estilizados y selección de servidores HD.",
+    "type": "onlinestream-provider",
+    "language": "javascript",
+    "lang": "multi",
+    "icon": "https://reanime.sharky.systems/favicon.ico",
+    "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/reanime/manifest.json",
+    "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/reanime/main.js",
+    "website": "https://reanime.sharky.systems"
+  },
+  {
+    "id": "jkanime",
+    "name": "JKAnime",
+    "version": "1.0.0",
+    "author": "Aniting / JKAnime",
+    "description": "Anime subtitulado al español con servidores múltiples de reproducción (StreamWish, VOE, etc.).",
+    "type": "onlinestream-provider",
+    "language": "javascript",
+    "lang": "es",
+    "icon": "https://cdn.jkdesa.com/assets3/css/img/favicon.ico",
+    "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/jkanime/manifest.json",
+    "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/jkanime/main.js",
+    "website": "https://jkanime.net"
   },
   {
     "id": "animetosho-new",
