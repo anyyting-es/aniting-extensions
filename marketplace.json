@@ -1,30 +1,16 @@
 [
   {
-    "id": "aniting-stream",
-    "name": "Aniting Multi-Audio",
+    "id": "aniting-universal",
+    "name": "Aniting Universal",
     "version": "1.0.0",
     "author": "Aniting",
-    "description": "Streaming en alta definición (1080p) con selector de audio Subtitulado, Latino y Castellano.",
-    "type": "onlinestream-provider",
-    "language": "javascript",
-    "lang": "es",
-    "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
-    "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-stream/manifest.json",
-    "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-stream/main.js",
-    "website": "https://aniting-api.algienrandomxdd.workers.dev"
-  },
-  {
-    "id": "aniting-hd",
-    "name": "Aniting Ultra HD",
-    "version": "1.0.0",
-    "author": "Aniting",
-    "description": "Transmisión directa HLS 1080p con multi-subtítulos sincronizados (Español, Inglés y más) y mapeo automático AniList.",
+    "description": "Proveedor único oficial: Transmisiones 1080p, Multi-Audio (Latino, Castellano, Japonés) y Multi-Subtítulos integrados.",
     "type": "onlinestream-provider",
     "language": "javascript",
     "lang": "multi",
     "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
-    "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-hd/manifest.json",
-    "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-hd/main.js",
+    "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-universal/manifest.json",
+    "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/aniting-universal/main.js",
     "website": "https://aniting-api.algienrandomxdd.workers.dev"
   }
 ]
