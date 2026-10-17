@@ -1,0 +1,14 @@
+{
+  "id": "vidsrc-tmdb",
+  "name": "VidSrc TMDB",
+  "version": "1.0.0",
+  "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/vidsrc-tmdb/manifest.json",
+  "language": "javascript",
+  "type": "onlinestream-provider",
+  "description": "Movies & series (TMDB)",
+  "author": "Aniting",
+  "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
+  "website": "https://github.com/anyyting-es/aniting-extensions",
+  "lang": "multi",
+  "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/vidsrc-tmdb/main.js"
+}

@@ -14,6 +14,20 @@
     "website": "https://aniting-api.algienrandomxdd.workers.dev"
   },
   {
+    "id": "vidsrc-tmdb",
+    "name": "VidSrc TMDB",
+    "version": "1.0.0",
+    "author": "Aniting",
+    "description": "Movies & series (TMDB)",
+    "type": "onlinestream-provider",
+    "language": "javascript",
+    "lang": "multi",
+    "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
+    "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/vidsrc-tmdb/manifest.json",
+    "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/vidsrc-tmdb/main.js",
+    "website": "https://github.com/anyyting-es/aniting-extensions"
+  },
+  {
     "id": "aq-anikoto",
     "name": "Anikoto",
     "version": "1.4.11",
