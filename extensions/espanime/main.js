@@ -24,7 +24,7 @@ class Provider {
                 subOrDub: "both"
             }));
         } catch (err) {
-            console.error("[KawaiiAnimes] search error:", err);
+            console.error("[EspAnime] search error:", err);
             return [];
         }
     }
@@ -41,7 +41,7 @@ class Provider {
                 url: `${API_BASE}/streams?animeId=${encodeURIComponent(id)}&ep=${ep.num}`
             }));
         } catch (err) {
-            console.error("[KawaiiAnimes] findEpisodes error:", err);
+            console.error("[EspAnime] findEpisodes error:", err);
             return [];
         }
     }
@@ -59,13 +59,13 @@ class Provider {
 
         const res = await fetch(queryUrl);
         if (!res.ok) {
-            throw new Error(`[KawaiiAnimes] Error HTTP ${res.status} al consultar streams`);
+            throw new Error(`[EspAnime] Error HTTP ${res.status} al consultar streams`);
         }
 
         const data = await res.json();
         const streams = data.streams || [];
         if (streams.length === 0) {
-            throw new Error(`[KawaiiAnimes] No hay streams disponibles para el episodio ${epNum}`);
+            throw new Error(`[EspAnime] No hay streams disponibles para el episodio ${epNum}`);
         }
 
         let chosen = null;

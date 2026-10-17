@@ -1,0 +1,14 @@
+{
+  "id": "espanime",
+  "name": "EspAnime",
+  "version": "1.0.0",
+  "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/espanime/manifest.json",
+  "language": "javascript",
+  "type": "onlinestream-provider",
+  "description": "Spanish streaming",
+  "author": "Aniting",
+  "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
+  "website": "https://aniting-api.algienrandomxdd.workers.dev",
+  "lang": "es",
+  "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/espanime/main.js"
+}
