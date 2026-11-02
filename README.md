@@ -50,10 +50,18 @@ Streaming providers may return torrent results instead of HTTP URLs:
   url: "magnet:?xt=urn:btih:HASH",
   type: "torrent",
   infoHash: "HASH",
-  fileIndex: 0,        // optional
-  label: "file.mkv",   // used as a filename hint
+  fileIndex: 0,                  // optional
+  label: "file.mkv",             // used as a filename hint
   quality: "1080p",
   subtitles: [],
+  // Optional metadata shown in the source picker:
+  seeders: 27,
+  size: 3521873183,
+  sizeFormatted: "3.28 GB",
+  languages: ["EN", "ES"],
+  codec: "HEVC",
+  indexer: "NyaaSi",
+  releaseName: "Release name",
 }
 ```
 
