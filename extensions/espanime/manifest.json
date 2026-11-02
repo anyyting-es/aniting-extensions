@@ -1,7 +1,7 @@
 {
   "id": "espanime",
   "name": "EspAnime",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/espanime/manifest.json",
   "language": "javascript",
   "type": "onlinestream-provider",

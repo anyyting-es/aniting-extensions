@@ -5,6 +5,7 @@ class Provider {
         return {
             episodeServers: ["Server 1 [Latino]", "Server 1 [Sub]", "Server 1 [Castellano]"],
             supportsDub: true,
+            providerType: "anime",
         };
     }
 

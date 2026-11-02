@@ -16,6 +16,10 @@ class Provider {
         return {
             episodeServers: ["vidsrc"],
             supportsDub: false,
+            // TMDB-only provider. The new capability field also excludes it
+            // from AniList/Anime source pickers.
+            providerType: "tmdb",
+            // Legacy flag kept for older Aniting builds.
             supportsTmdb: true,
         };
     }

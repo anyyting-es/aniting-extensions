@@ -2,7 +2,7 @@
   {
     "id": "espanime",
     "name": "EspAnime",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Aniting",
     "description": "Spanish streaming",
     "type": "onlinestream-provider",
@@ -16,7 +16,7 @@
   {
     "id": "vidsrc-tmdb",
     "name": "VidSrc TMDB",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Aniting",
     "description": "Movies & series (TMDB)",
     "type": "onlinestream-provider",
@@ -376,5 +376,19 @@
     "manifestURI": "https://raw.githubusercontent.com/faddix/seanime-animetosho-new/main/animetosho-new.json",
     "payloadURI": "https://raw.githubusercontent.com/faddix/seanime-animetosho-new/main/animetosho-new.ts",
     "website": ""
+  },
+  {
+    "id": "torrentio",
+    "name": "Torrentio",
+    "version": "1.0.0",
+    "author": "Aniting",
+    "description": "Torrent indexer for movies & series via Cinemeta + Torrentio",
+    "type": "anime-torrent-provider",
+    "language": "javascript",
+    "lang": "multi",
+    "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
+    "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/torrentio/manifest.json",
+    "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/torrentio/main.js",
+    "website": "https://torrentio.strem.fun"
   }
 ]
