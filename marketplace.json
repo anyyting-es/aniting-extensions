@@ -11,7 +11,8 @@
     "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
     "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/espanime/manifest.json",
     "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/espanime/main.js",
-    "website": "https://aniting-api.algienrandomxdd.workers.dev"
+    "website": "https://aniting-api.algienrandomxdd.workers.dev",
+    "providerType": "anime"
   },
   {
     "id": "vidsrc-tmdb",
@@ -25,7 +26,8 @@
     "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
     "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/vidsrc-tmdb/manifest.json",
     "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/vidsrc-tmdb/main.js",
-    "website": "https://github.com/anyyting-es/aniting-extensions"
+    "website": "https://github.com/anyyting-es/aniting-extensions",
+    "providerType": "tmdb"
   },
   {
     "id": "aq-anikoto",
@@ -389,6 +391,7 @@
     "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
     "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/torrentio/manifest.json",
     "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/torrentio/main.js",
-    "website": "https://torrentio.strem.fun"
+    "website": "https://torrentio.strem.fun",
+    "providerType": "tmdb"
   }
 ]

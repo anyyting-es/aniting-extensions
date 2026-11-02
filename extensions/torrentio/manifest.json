@@ -10,5 +10,6 @@
   "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
   "website": "https://torrentio.strem.fun",
   "lang": "multi",
-  "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/torrentio/main.js"
+  "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/torrentio/main.js",
+  "providerType": "tmdb"
 }

@@ -10,5 +10,6 @@
   "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
   "website": "https://aniting-api.algienrandomxdd.workers.dev",
   "lang": "es",
-  "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/espanime/main.js"
+  "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/espanime/main.js",
+  "providerType": "anime"
 }

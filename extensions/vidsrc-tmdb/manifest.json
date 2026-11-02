@@ -10,5 +10,6 @@
   "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
   "website": "https://github.com/anyyting-es/aniting-extensions",
   "lang": "multi",
-  "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/vidsrc-tmdb/main.js"
+  "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/vidsrc-tmdb/main.js",
+  "providerType": "tmdb"
 }
