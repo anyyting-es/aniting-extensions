@@ -107,6 +107,15 @@ class Provider {
             out.push(source);
         }
 
+        // Prefer 1080p for the automatic first source (matches the default
+        // torrent resolution); the rest stay available in the source picker.
+        const rank = { "1080p": 0, "2160p": 1, "720p": 2, "480p": 3, "360p": 4 };
+        out.sort((a, b) => {
+            const ra = rank[a.quality];
+            const rb = rank[b.quality];
+            return (ra === undefined ? 9 : ra) - (rb === undefined ? 9 : rb);
+        });
+
         return {
             provider: "",
             server: "Torrentio",
