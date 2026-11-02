@@ -166,24 +166,51 @@ class Provider {
         if (!infoHash) return null;
 
         const hints = stream.behaviorHints || {};
-        const text = `${stream.name || ""}\n${stream.title || ""}`;
-        const filename = String(hints.filename || "").trim();
-        const name = filename ||
-            String(stream.title || "").split("\n")[0].trim() ||
-            `Torrent ${infoHash.slice(0, 8)}`;
+        const allLines = String(stream.title || "")
+            .split("\n")
+            .map((line) => line.trim())
+            .filter((line) => line.length > 0);
+        const metaLine = allLines.find((line) => /[👤💾⚙️]/.test(line)) || "";
+        const contentLines = allLines.filter(
+            (line) => line !== metaLine && !/^[🇦-🇿]{2}(\s*\/\s*[🇦-🇿]{2})*$/u.test(line)
+        );
+        const releaseName = contentLines[0] || "";
+        let filename = String(hints.filename || "").trim();
+        if (!filename && contentLines.length > 1 &&
+            /\.(mkv|mp4|avi|m4v|webm|mov|ts)$/i.test(contentLines[1])) {
+            filename = contentLines[1];
+        }
+        if (!filename) filename = releaseName;
 
+        const text = `${stream.name || ""}\n${stream.title || ""}\n${filename}`;
+        const size = this.parseSize(text);
         const source = {
-            url: `magnet:?xt=urn:btih:${infoHash}&dn=${encodeURIComponent(name)}`,
+            url: `magnet:?xt=urn:btih:${infoHash}&dn=${encodeURIComponent(filename)}`,
             type: "torrent",
-            label: name,
-            quality: this.parseResolution(`${name} ${text}`),
+            label: filename || `Torrent ${infoHash.slice(0, 8)}`,
+            quality: this.parseResolution(`${filename} ${text}`),
             subtitles: [],
             infoHash,
         };
 
+        if (releaseName && releaseName !== filename) {
+            source.releaseName = releaseName;
+        }
         if (typeof stream.fileIdx === "number" && stream.fileIdx >= 0) {
             source.fileIndex = stream.fileIdx;
         }
+        const seeders = this.parseSeeders(text);
+        if (seeders > 0) source.seeders = seeders;
+        if (size.bytes > 0) {
+            source.size = size.bytes;
+            source.sizeFormatted = size.formatted;
+        }
+        const languages = this.parseLanguages(text);
+        if (languages.length > 0) source.languages = languages;
+        const codec = this.parseCodec(text);
+        if (codec) source.codec = codec;
+        const indexer = this.parseIndexer(stream.title);
+        if (indexer) source.indexer = indexer;
 
         return source;
     }
@@ -200,6 +227,74 @@ class Provider {
         if (!match) return "";
         const value = match[1].toLowerCase();
         return value === "4k" ? "2160p" : value;
+    }
+
+    parseSize(text) {
+        const match = String(text || "").match(/(?:💾\s*)?([\d.,]+)\s*(TB|GB|MB|KB)/i);
+        if (!match) return { bytes: 0, formatted: "" };
+        const value = parseFloat(String(match[1]).replace(",", "."));
+        if (!Number.isFinite(value) || value <= 0) {
+            return { bytes: 0, formatted: "" };
+        }
+        const unit = match[2].toUpperCase();
+        const multiplier = unit === "TB" ? 1024 * 1024 * 1024 * 1024
+            : unit === "GB" ? 1024 * 1024 * 1024
+            : unit === "MB" ? 1024 * 1024
+            : 1024;
+        return {
+            bytes: Math.round(value * multiplier),
+            formatted: `${match[1].replace(",", ".")} ${unit}`,
+        };
+    }
+
+    parseSeeders(text) {
+        const match = String(text || "").match(/👤\s*([\d,.]+)/);
+        if (!match) return 0;
+        return parseInt(String(match[1]).replace(/[.,]/g, ""), 10) || 0;
+    }
+
+    parseLanguages(text) {
+        const flags = {
+            "🇬🇧": "EN", "🇺🇸": "EN", "🇦🇺": "EN", "🇨🇦": "EN",
+            "🇪🇸": "ES", "🇲🇽": "ES", "🇦🇷": "ES", "🇨🇴": "ES", "🇨🇱": "ES", "🇵🇪": "ES",
+            "🇫🇷": "FR", "🇩🇪": "DE", "🇮🇹": "IT",
+            "🇵🇹": "PT", "🇧🇷": "PT", "🇷🇺": "RU", "🇯🇵": "JA",
+            "🇰🇷": "KO", "🇨🇳": "ZH", "🇹🇼": "ZH", "🇭🇰": "ZH",
+            "🇮🇳": "HI", "🇸🇦": "AR", "🇦🇪": "AR", "🇹🇷": "TR",
+            "🇵🇱": "PL", "🇳🇱": "NL", "🇸🇪": "SV", "🇩🇰": "DA",
+            "🇫🇮": "FI", "🇳🇴": "NO", "🇬🇷": "EL", "🇨🇿": "CS",
+            "🇭🇺": "HU", "🇷🇴": "RO", "🇺🇦": "UK", "🇮🇱": "HE",
+            "🇹🇭": "TH", "🇻🇳": "VI", "🇮🇩": "ID", "🇲🇾": "MS", "🇵🇭": "TL",
+        };
+        const haystack = String(text || "");
+        const out = [];
+        for (const flag of Object.keys(flags)) {
+            if (haystack.indexOf(flag) !== -1 && out.indexOf(flags[flag]) === -1) {
+                out.push(flags[flag]);
+            }
+        }
+        return out;
+    }
+
+    parseCodec(text) {
+        const match = String(text || "").match(
+            /\b(x265|hevc|h\.?265|av1|x264|h\.?264|avc|vp9|xvid|divx)\b/i
+        );
+        if (!match) return "";
+        const value = match[1].toLowerCase().replace(/\./g, "");
+        if (value === "x265" || value === "hevc" || value === "h265") return "HEVC";
+        if (value === "x264" || value === "h264" || value === "avc") return "H.264";
+        if (value === "av1") return "AV1";
+        if (value === "vp9") return "VP9";
+        return String(match[1]).toUpperCase();
+    }
+
+    parseIndexer(title) {
+        const match = String(title || "").match(/⚙️?\s*([^\n]+)/);
+        if (!match) return "";
+        const value = String(match[1]).trim();
+        if (!value || /^[\d.,]+\s*(GB|MB|TB)/i.test(value)) return "";
+        return value.split("\n")[0].trim();
     }
 
     // ---------------------------------------------------------------- search
