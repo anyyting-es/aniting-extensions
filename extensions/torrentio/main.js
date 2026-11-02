@@ -268,11 +268,34 @@ class Provider {
         };
         const haystack = String(text || "");
         const out = [];
+        const add = (code) => {
+            if (code && out.indexOf(code) === -1) out.push(code);
+        };
+
         for (const flag of Object.keys(flags)) {
-            if (haystack.indexOf(flag) !== -1 && out.indexOf(flags[flag]) === -1) {
-                out.push(flags[flag]);
-            }
+            if (haystack.indexOf(flag) !== -1) add(flags[flag]);
         }
+
+        // Fallback for filenames without flag emojis.
+        const tokens = {
+            "ENGLISH": "EN", "ENG": "EN",
+            "SPANISH": "ES", "ESP": "ES", "LATINO": "ES", "CASTELLANO": "ES", "CAST": "ES",
+            "FRENCH": "FR", "FRE": "FR",
+            "GERMAN": "DE", "GER": "DE", "DEUTSCH": "DE",
+            "ITALIAN": "IT", "ITA": "IT",
+            "JAPANESE": "JA", "JAP": "JA",
+            "RUSSIAN": "RU", "RUS": "RU",
+            "PORTUGUESE": "PT", "POR": "PT",
+            "KOREAN": "KO", "KOR": "KO",
+            "CHINESE": "ZH", "CHI": "ZH",
+            "MULTI": "MULTI", "DUAL": "DUAL",
+        };
+        const upper = haystack.toUpperCase();
+        for (const token of Object.keys(tokens)) {
+            const pattern = new RegExp(`(?:^|[^A-Z])${token}(?:[^A-Z]|$)`);
+            if (pattern.test(upper)) add(tokens[token]);
+        }
+
         return out;
     }
 
