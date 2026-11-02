@@ -18,7 +18,7 @@ https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/marketplac
 
 **Manga:** AnimeSama (Manga), Atsumaru, CapibaraTraductor, FanFox, Komiku, LeerCapitulo, Mangadex, MangaFire, MangaFlix, MangaFreak, MangaHub
 
-**Torrents:** Nyaa, AnimeTosho (NEW), Torrentio
+**TMDB streaming:** VidSrc TMDB, Torrentio
 
 ## Provider capabilities
 
@@ -41,4 +41,22 @@ getSettings() {
 
 Aniting filters each picker using this field, so a TMDB-only extension no longer appears in Anime.
 
-**Torrentio** is an `anime-torrent-provider`: it resolves Cinemeta titles to IMDb ids, queries Torrentio, and returns magnets/infoHashes for Aniting's torrent streaming engine. It is not an `onlinestream-provider` because Torrentio does not return direct HTTP streams.
+### Torrent video sources
+
+Streaming providers may return torrent results instead of HTTP URLs:
+
+```js
+{
+  url: "magnet:?xt=urn:btih:HASH",
+  type: "torrent",
+  infoHash: "HASH",
+  fileIndex: 0,        // optional
+  label: "file.mkv",   // used as a filename hint
+  quality: "1080p",
+  subtitles: [],
+}
+```
+
+Aniting starts the torrent with its own engine and plays the local torrentstream URL.
+
+**Torrentio** is an `onlinestream-provider` with `providerType: "tmdb"`. It queries Torrentio using the IMDb id (or resolves it through Cinemeta by title) and returns `torrent` video sources: `url` is a magnet link, plus `infoHash` and an optional `fileIndex`. Aniting starts the torrent with its own engine and plays the local `/api/v1/torrentstream/stream/...` endpoint, so it works for TMDB movies and series without a Debrid account.

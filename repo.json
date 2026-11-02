@@ -380,10 +380,10 @@
   {
     "id": "torrentio",
     "name": "Torrentio",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "Aniting",
-    "description": "Torrent indexer for movies & series via Cinemeta + Torrentio",
-    "type": "anime-torrent-provider",
+    "description": "Movies & series torrents (TMDB) via Torrentio",
+    "type": "onlinestream-provider",
     "language": "javascript",
     "lang": "multi",
     "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
