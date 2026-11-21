@@ -3,7 +3,7 @@ const API_BASE = "https://aniting-api.algienrandomxdd.workers.dev";
 class Provider {
     getSettings() {
         return {
-            episodeServers: ["Server 1 [Latino]", "Server 1 [Sub]", "Server 1 [Castellano]"],
+            episodeServers: ["Server 1 [Sub]", "Server 1 [Latino]", "Server 1 [Castellano]"],
             supportsDub: true,
             providerType: "anime",
         };
@@ -52,7 +52,70 @@ class Provider {
         const animeId = parts[0];
         const epNum = parts[1] || episode.number || 1;
 
+        // 1. Obtener lista de servidores disponibles
+        let players = [];
+        try {
+            const res = await fetch(`${API_BASE}/players?animeId=${encodeURIComponent(animeId)}&ep=${epNum}`);
+            if (res.ok) {
+                const data = await res.json();
+                players = data.players || [];
+            }
+        } catch (e) {
+            console.error("[EspAnime] Error obteniendo /players:", e);
+        }
+
         const targetServer = (server || "").trim();
+        let chosen = null;
+        if (targetServer && players.length > 0) {
+            chosen = players.find(p => p.server.toLowerCase() === targetServer.toLowerCase());
+        }
+        if (!chosen && players.length > 0) {
+            chosen = players[0];
+        }
+
+        // 2. Extracción directa residencial para Filemoon (sid 2)
+        if (chosen && chosen.sid === 2 && chosen.code) {
+            try {
+                const pRes = await fetch(`https://byseraguci.com/api/videos/${chosen.code}`, {
+                    headers: {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+                        "Referer": `https://byseraguci.com/e/${chosen.code}`,
+                        "Origin": "https://byseraguci.com"
+                    }
+                });
+                if (pRes.ok) {
+                    const pData = await pRes.json();
+                    if (pData && pData.playback) {
+                        const decRes = await fetch(`${API_BASE}/decrypt-playback`, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(pData.playback)
+                        });
+                        if (decRes.ok) {
+                            const decData = await decRes.json();
+                            if (decData.url) {
+                                return {
+                                    server: chosen.server,
+                                    headers: {},
+                                    videoSources: [
+                                        {
+                                            url: decData.url,
+                                            type: "m3u8",
+                                            quality: "1080p",
+                                            subtitles: []
+                                        }
+                                    ]
+                                };
+                            }
+                        }
+                    }
+                }
+            } catch (err) {
+                console.error("[EspAnime] Error en extracción directa Filemoon:", err);
+            }
+        }
+
+        // 3. Fallback: streams del Worker
         let queryUrl = `${API_BASE}/streams?animeId=${encodeURIComponent(animeId)}&ep=${epNum}`;
         if (targetServer) {
             queryUrl += `&server=${encodeURIComponent(targetServer)}`;
@@ -69,22 +132,22 @@ class Provider {
             throw new Error(`[EspAnime] No hay streams disponibles para el episodio ${epNum}`);
         }
 
-        let chosen = null;
+        let chosenStream = null;
         if (targetServer) {
-            chosen = streams.find(s => s.server.toLowerCase() === targetServer.toLowerCase());
+            chosenStream = streams.find(s => s.server.toLowerCase() === targetServer.toLowerCase());
         }
-        if (!chosen) {
-            chosen = streams[0];
+        if (!chosenStream) {
+            chosenStream = streams[0];
         }
 
         return {
-            server: chosen.server,
-            headers: chosen.headers || {},
+            server: chosenStream.server,
+            headers: chosenStream.headers || {},
             videoSources: [
                 {
-                    url: chosen.url,
+                    url: chosenStream.url,
                     type: "m3u8",
-                    quality: chosen.quality || "1080p",
+                    quality: chosenStream.quality || "1080p",
                     subtitles: []
                 }
             ]
