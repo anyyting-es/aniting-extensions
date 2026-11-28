@@ -2,7 +2,7 @@
   {
     "id": "espanime",
     "name": "EspAnime",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author": "Aniting",
     "description": "Spanish streaming",
     "type": "onlinestream-provider",
@@ -11,7 +11,7 @@
     "icon": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/icons/icon.png",
     "manifestURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/espanime/manifest.json",
     "payloadURI": "https://raw.githubusercontent.com/anyyting-es/aniting-extensions/main/extensions/espanime/main.js",
-    "website": "https://aniting-api.algienrandomxdd.workers.dev",
+    "website": "https://anthony-service-api.algienrandomxdd.workers.dev",
     "providerType": "anime"
   },
   {
